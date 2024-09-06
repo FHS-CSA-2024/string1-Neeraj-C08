@@ -12,6 +12,7 @@ public class String1
         System.out.println(s.makeOutWord("<<>>", "Yay"));
         System.out.println(s.extraEnd("Hello"));
         System.out.println(s.firstTwo("Hello"));
+        System.out.println(s.firstHalf("People"));
         System.out.println(s.withoutEnd("Hello"));
         System.out.println(s.comboString("hi", "Hello"));
         System.out.println(s.middleThree("Candy"));
@@ -50,9 +51,15 @@ public class String1
      * makeAbba("What", "Up") → "WhatUpUpWhat"
      */
     public String makeAbba(String a, String b) {
-        return unimplemented;
+        
+        a = "Fast";
+        b =  "Slow";
+        
+        return a + b + b + a;
+        
     }
-
+    
+    
     /*
      * The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. 
      * In this example, the "i" tag makes <i> and </i> which surround the word "Yay". 
@@ -62,7 +69,9 @@ public class String1
      * makeTags("cite", "Yay") → "<cite>Yay</cite>"
      */
     public String makeTags(String tag, String word) {
-        return unimplemented;
+    
+     return "<" + tag + ">" + word + "</" + tag + ">";
+    
     }
 
     /*
@@ -76,7 +85,10 @@ public class String1
      * makeOutWord("[[]]", "word") → "[[word]]"
      */
     public String makeOutWord(String out, String word) {
-        return unimplemented;
+        
+       String out1 = out.substring(0,2);
+       String out2 = out.substring(2,4);
+       return out1 + word + out2;
     }
 
     /*
@@ -87,7 +99,8 @@ public class String1
      * extraEnd("Hi") → "HiHiHi"
      */
     public String extraEnd(String str) {
-        return unimplemented;
+        String repeat = str.substring(str.length()-2);
+        return repeat  +  repeat  +  repeat;
     }
 
     /*
@@ -100,7 +113,7 @@ public class String1
      * firstTwo("ab") → "ab"
      */
     public String firstTwo(String str) {
-        return unimplemented;
+        return str.substring(0,2);
     }
 
     /*
@@ -110,7 +123,10 @@ public class String1
      * firstHalf("abcdef") → "abc"
      */
     public String firstHalf(String str) {
-        return unimplemented;
+        int len =  str.length();
+        int halflen = len/2; 
+        return  str.substring(0,halflen);
+        
     }
 
     /*
@@ -184,7 +200,7 @@ public class String1
     /*
      * Given two strings, append them together (known as "concatenation") and return the result. 
      * However, if the concatenation creates a double-char, then omit one of the chars, 
-     * 	so "abc" and "cat" yields "abcat".
+     *     so "abc" and "cat" yields "abcat".
      * conCat("abc", "cat") → "abcat"
      * conCat("dog", "cat") → "dogcat"
      * conCat("abc", "") → "abc"
@@ -196,7 +212,7 @@ public class String1
     /*
      *Given two strings, append them together (known as "concatenation") and return the result. 
      *However, if the strings are different lengths, omit chars from the longer string 
-     *	so it is the same length as the shorter string. 
+     *    so it is the same length as the shorter string. 
      *So "Hello" and "Hi" yield "loHi". 
      *The strings may be any length.
      *minCat("Hello", "Hi") → "loHi"
